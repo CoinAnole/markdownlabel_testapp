@@ -1,0 +1,3 @@
+[submodule "external/markdownlabel"]
+	path = external/markdownlabel
+	url = https://github.com/CoinAnole/markdownlabel.git
