@@ -18,8 +18,8 @@ class MarkdownDemoApp(App):
     
     def build(self):
         """Build and return the root widget."""
-        # Configure window size to 800x600 pixels (Requirement 5.1)
-        Window.size = (800, 600)
+        # Configure window size to 800x1200 pixels (Requirement 5.1)
+        Window.size = (800, 1200)
         
         # Set descriptive window title (Requirement 5.3)
         self.title = "MarkdownLabel Demo - Kivy Garden"
@@ -39,7 +39,8 @@ class MarkdownDemoApp(App):
         # Set size_hint_y to None and bind height to minimum_height for proper scrolling
         md_label = MarkdownLabel(
             text=markdown_content,
-            size_hint_y=None
+            size_hint_y=None,
+            base_font_size='20sp'
         )
         md_label.bind(minimum_height=md_label.setter('height'))
         
