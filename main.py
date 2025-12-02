@@ -36,7 +36,12 @@ class MarkdownDemoApp(App):
         
         # Create MarkdownLabel widget
         # MarkdownLabel automatically manages its height via minimum_height
-        md_label = MarkdownLabel(text=markdown_content)
+        # Set size_hint_y to None and bind height to minimum_height for proper scrolling
+        md_label = MarkdownLabel(
+            text=markdown_content,
+            size_hint_y=None
+        )
+        md_label.bind(minimum_height=md_label.setter('height'))
         
         # Bind link click event handler (Requirement 4.1)
         md_label.bind(on_ref_press=self.on_ref_press)
