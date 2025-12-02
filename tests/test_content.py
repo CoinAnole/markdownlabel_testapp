@@ -123,5 +123,59 @@ class TestSampleContentCompleteness(unittest.TestCase):
         self.assertGreater(len(links), 0, "At least one clickable link should be present")
 
 
+class TestDocumentationCompleteness(unittest.TestCase):
+    """Test that README.md exists and contains required sections."""
+
+    @classmethod
+    def setUpClass(cls):
+        """Load the README file once for all tests."""
+        readme_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'README.md')
+        if os.path.exists(readme_path):
+            with open(readme_path, 'r', encoding='utf-8') as f:
+                cls.content = f.read()
+        else:
+            cls.content = None
+
+    def test_readme_exists(self):
+        """Test that README.md exists."""
+        # Requirements: 6.1
+        readme_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'README.md')
+        self.assertTrue(os.path.exists(readme_path), "README.md should exist")
+        self.assertIsNotNone(self.content, "README.md should be readable")
+
+    def test_setup_instructions(self):
+        """Test that README contains step-by-step setup instructions."""
+        # Requirements: 6.1
+        self.assertIsNotNone(self.content, "README.md should exist")
+        # Look for setup-related keywords
+        setup_keywords = ['setup', 'install', 'virtual environment', 'venv']
+        has_setup = any(keyword.lower() in self.content.lower() for keyword in setup_keywords)
+        self.assertTrue(has_setup, "README should contain setup instructions")
+
+    def test_python3_run_command(self):
+        """Test that README specifies the exact python3 command to run the app."""
+        # Requirements: 6.2
+        self.assertIsNotNone(self.content, "README.md should exist")
+        # Look for python3 command
+        self.assertIn('python3', self.content.lower(), "README should specify python3 command")
+        self.assertIn('main.py', self.content, "README should reference main.py")
+
+    def test_prerequisite_dependencies(self):
+        """Test that README lists prerequisite system dependencies for Kivy."""
+        # Requirements: 6.3
+        self.assertIsNotNone(self.content, "README.md should exist")
+        # Look for prerequisites or dependencies section
+        prereq_keywords = ['prerequisite', 'dependencies', 'requirement', 'system']
+        has_prereqs = any(keyword.lower() in self.content.lower() for keyword in prereq_keywords)
+        self.assertTrue(has_prereqs, "README should list prerequisite dependencies")
+
+    def test_troubleshooting_section(self):
+        """Test that README includes troubleshooting guidance."""
+        # Requirements: 6.4
+        self.assertIsNotNone(self.content, "README.md should exist")
+        # Look for troubleshooting section
+        self.assertIn('troubleshoot', self.content.lower(), "README should include troubleshooting section")
+
+
 if __name__ == '__main__':
     unittest.main()
