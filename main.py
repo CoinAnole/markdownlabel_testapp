@@ -38,6 +38,9 @@ class MarkdownDemoApp(App):
         # MarkdownLabel automatically manages its height via minimum_height
         md_label = MarkdownLabel(text=markdown_content)
         
+        # Bind link click event handler (Requirement 4.1)
+        md_label.bind(on_ref_press=self.on_ref_press)
+        
         # Create ScrollView with vertical scrolling
         scroll_view = ScrollView(
             do_scroll_x=False,
@@ -49,9 +52,20 @@ class MarkdownDemoApp(App):
         return scroll_view
     
     def on_ref_press(self, instance, ref):
-        """Handle link click events from MarkdownLabel."""
-        # TODO: Implement in task 5
-        pass
+        """Handle link click events from MarkdownLabel.
+        
+        Args:
+            instance: The MarkdownLabel widget instance
+            ref: The reference/URL that was clicked
+        
+        Requirements: 4.1, 4.2, 4.3
+        """
+        try:
+            # Display the clicked URL in console output (Requirement 4.2)
+            print(f"Link clicked: {ref}")
+        except Exception as e:
+            # Error handling to prevent crashes (Requirement 4.3)
+            print(f"Error handling link click: {e}")
 
 
 if __name__ == '__main__':
