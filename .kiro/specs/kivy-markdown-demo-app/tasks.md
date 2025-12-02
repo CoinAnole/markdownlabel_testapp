@@ -6,7 +6,7 @@
   - Create tests/ directory for test files
   - _Requirements: 1.1, 1.2, 1.3, 1.4_
 
-- [ ] 2. Create sample Markdown content file
+- [x] 2. Create sample Markdown content file
   - Create sample_markdown.md with comprehensive examples
   - Include all heading levels (H1-H6)
   - Include inline formatting examples (bold, italic, strikethrough, inline code)
@@ -17,7 +17,7 @@
   - Include clickable links
   - _Requirements: 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8_
 
-- [ ] 2.1 Write unit test for sample content completeness
+- [x] 2.1 Write unit test for sample content completeness
   - Test that sample_markdown.md contains all required Markdown elements
   - _Requirements: 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8_
 
