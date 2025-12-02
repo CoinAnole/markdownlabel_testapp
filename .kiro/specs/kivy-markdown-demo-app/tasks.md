@@ -34,7 +34,7 @@
   - Test window title configuration
   - _Requirements: 2.1, 5.1, 5.3_
 
-- [ ] 4. Implement UI layout with ScrollView and MarkdownLabel
+- [x] 4. Implement UI layout with ScrollView and MarkdownLabel
   - Create ScrollView with vertical scrolling enabled and horizontal scrolling disabled
   - Create MarkdownLabel widget with proper size configuration
   - Bind texture_size to size for dynamic height adjustment
@@ -42,7 +42,7 @@
   - Add error handling for file loading
   - _Requirements: 2.1, 3.1_
 
-- [ ] 4.1 Write unit tests for UI components
+- [x] 4.1 Write unit tests for UI components
   - Test that widget tree contains ScrollView and MarkdownLabel
   - Test ScrollView configuration
   - Test MarkdownLabel configuration
