@@ -80,6 +80,6 @@
   - Test that README.md exists and contains required sections
   - _Requirements: 6.1, 6.2, 6.3, 6.4_
 
-- [ ] 7. Checkpoint - Ensure all tests pass
+- [x] 7. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
