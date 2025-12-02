@@ -3,13 +3,13 @@
 Kivy Markdown Demo App
 
 A simple demonstration application that showcases the MarkdownLabel widget
-from the kivy_garden.markdown_label flower.
+from the kivy_garden.markdownlabel flower.
 """
 
 from kivy.app import App
 from kivy.uix.scrollview import ScrollView
 from kivy.core.window import Window
-from kivy_garden.markdown_label import MarkdownLabel
+from kivy_garden.markdownlabel import MarkdownLabel
 import os
 
 

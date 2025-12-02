@@ -1,6 +1,6 @@
 # Kivy MarkdownLabel Demo App
 
-A simple demonstration application that showcases the MarkdownLabel widget from the `kivy_garden.markdown_label` flower. This app serves as a test harness to verify that the MarkdownLabel widget correctly renders various Markdown syntax elements including headings, formatting, lists, tables, code blocks, links, and more.
+A simple demonstration application that showcases the MarkdownLabel widget from the `kivy_garden.markdownlabel` flower. This app serves as a test harness to verify that the MarkdownLabel widget correctly renders various Markdown syntax elements including headings, formatting, lists, tables, code blocks, links, and more.
 
 ## Purpose
 
@@ -68,7 +68,7 @@ python3 -m pip install -r requirements.txt
 
 ### 4. Install the MarkdownLabel Flower
 
-Install the `kivy_garden.markdown_label` flower in development mode from the external directory:
+Install the `kivy_garden.markdownlabel` flower in development mode from the external directory:
 
 ```bash
 python3 -m pip install -e external/markdownlabel
@@ -79,7 +79,7 @@ python3 -m pip install -e external/markdownlabel
 Verify that the MarkdownLabel widget can be imported:
 
 ```bash
-python3 -c "from kivy_garden.markdown_label import MarkdownLabel; print('Installation successful!')"
+python3 -c "from kivy_garden.markdownlabel import MarkdownLabel; print('Installation successful!')"
 ```
 
 ## Running the Demo App
@@ -119,7 +119,7 @@ source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 python3 -m pip install -r requirements.txt
 ```
 
-#### Issue: "ModuleNotFoundError: No module named 'kivy_garden.markdown_label'"
+#### Issue: "ModuleNotFoundError: No module named 'kivy_garden.markdownlabel'"
 
 **Solution:** Install the MarkdownLabel flower in development mode:
 ```bash
@@ -184,5 +184,5 @@ This demo application is provided as-is for demonstration and testing purposes.
 ## Additional Resources
 
 - [Kivy Documentation](https://kivy.org/doc/stable/)
-- [MarkdownLabel Flower Documentation](https://github.com/kivy-garden/garden.markdown_label)
+- [MarkdownLabel Flower Documentation](https://github.com/kivy-garden/garden.markdownlabel)
 - [Markdown Syntax Guide](https://www.markdownguide.org/basic-syntax/)

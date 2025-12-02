@@ -2,7 +2,7 @@
 import unittest
 from unittest.mock import patch
 from io import StringIO
-from kivy_garden.markdown_label import MarkdownLabel
+from kivy_garden.markdownlabel import MarkdownLabel
 
 
 class TestEventHandlers(unittest.TestCase):

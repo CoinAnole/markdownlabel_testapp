@@ -3,7 +3,7 @@ import unittest
 from unittest.mock import patch
 from kivy.core.window import Window
 from kivy.uix.scrollview import ScrollView
-from kivy_garden.markdown_label import MarkdownLabel
+from kivy_garden.markdownlabel import MarkdownLabel
 
 
 class TestApplicationStructure(unittest.TestCase):

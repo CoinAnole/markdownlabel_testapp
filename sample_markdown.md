@@ -1,6 +1,6 @@
 # Heading Level 1
 
-This is a demonstration of the MarkdownLabel widget from kivy_garden.markdown_label.
+This is a demonstration of the MarkdownLabel widget from kivy_garden.markdownlabel.
 
 ## Heading Level 2
 

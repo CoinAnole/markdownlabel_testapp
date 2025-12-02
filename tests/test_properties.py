@@ -3,7 +3,7 @@ import unittest
 from hypothesis import given, strategies as st, settings
 from unittest.mock import patch
 from io import StringIO
-from kivy_garden.markdown_label import MarkdownLabel
+from kivy_garden.markdownlabel import MarkdownLabel
 
 
 class TestProperties(unittest.TestCase):
