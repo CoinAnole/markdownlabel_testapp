@@ -57,11 +57,11 @@ Here's a table with headers and multiple rows:
 
 | Feature | Status | Priority |
 |---------|--------|----------|
-| Headings | ✓ | High |
-| Inline formatting | ✓ | High |
-| Lists | ✓ | Medium |
-| Tables | ✓ | Medium |
-| Code blocks | ✓ | Low |
+| Headings | Yes | High |
+| Inline formatting | Yes | High |
+| Lists | Yes | Medium |
+| Tables | Yes | Medium |
+| Code blocks | Yes | Low |
 
 ---
 
