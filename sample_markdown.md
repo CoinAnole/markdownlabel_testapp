@@ -63,6 +63,26 @@ Here's a table with headers and multiple rows:
 | Tables | Yes | Medium |
 | Code blocks | Yes | Low |
 
+### Table with Column Alignment
+
+This table demonstrates left, center, and right alignment:
+
+| Left Aligned | Center Aligned | Right Aligned |
+|:-------------|:--------------:|--------------:|
+| Left | Center | Right |
+| Short | Mid | Long text here |
+| A | B | C |
+| 1 | 2 | 3 |
+| Apple | Banana | Cherry |
+
+### Mixed Content Table
+
+| Item | Price | Quantity | Total |
+|:-----|:-----:|---------:|------:|
+| Apple | $1.50 | 10 | $15.00 |
+| Banana | $0.75 | 25 | $18.75 |
+| Cherry | $3.00 | 5 | $15.00 |
+
 ---
 
 ## Code Blocks
