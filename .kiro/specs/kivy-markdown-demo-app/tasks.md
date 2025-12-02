@@ -1,6 +1,6 @@
 # Implementation Plan
 
-- [ ] 1. Set up project structure and dependencies
+- [x] 1. Set up project structure and dependencies
   - Create main.py file for the application entry point
   - Create requirements.txt with Kivy and mistune dependencies
   - Create tests/ directory for test files
