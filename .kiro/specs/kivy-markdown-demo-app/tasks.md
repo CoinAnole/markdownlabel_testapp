@@ -21,14 +21,14 @@
   - Test that sample_markdown.md contains all required Markdown elements
   - _Requirements: 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8_
 
-- [ ] 3. Implement main application structure
+- [x] 3. Implement main application structure
   - Create MarkdownDemoApp class inheriting from kivy.app.App
   - Implement build() method to construct widget tree
   - Configure window size to 800x600 pixels
   - Set descriptive window title
   - _Requirements: 2.1, 5.1, 5.3_
 
-- [ ] 3.1 Write unit tests for application structure
+- [x] 3.1 Write unit tests for application structure
   - Test that app builds successfully
   - Test window size configuration
   - Test window title configuration
