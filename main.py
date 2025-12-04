@@ -87,6 +87,16 @@ class MarkdownDemoApp(App):
         line_height_section = self.create_section("line_height", line_height_variations)
         main_layout.add_widget(line_height_section)
         
+        # Add halign demonstration section (Requirements 5.1, 5.2)
+        halign_variations = [
+            ("halign='left'", {"halign": "left"}),
+            ("halign='center'", {"halign": "center"}),
+            ("halign='right'", {"halign": "right"}),
+            ("halign='justify'", {"halign": "justify"}),
+        ]
+        halign_section = self.create_section("halign", halign_variations)
+        main_layout.add_widget(halign_section)
+        
         return scroll_view
     
     def create_header(self, title):

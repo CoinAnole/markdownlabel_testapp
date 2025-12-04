@@ -42,8 +42,8 @@
     - Add variations with line_height=1.0, 1.5, 2.0
     - _Requirements: 4.1, 4.2_
 
-- [ ] 6. Implement halign demonstration section
-  - [ ] 6.1 Add halign section with variations
+- [x] 6. Implement halign demonstration section
+  - [x] 6.1 Add halign section with variations
     - Create section with "halign" header
     - Add variations for left, center, right, justify alignments
     - _Requirements: 5.1, 5.2_
