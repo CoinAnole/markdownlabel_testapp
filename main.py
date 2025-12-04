@@ -52,6 +52,14 @@ class MarkdownDemoApp(App):
         # Store reference to main layout for adding sections
         self.main_layout = main_layout
         
+        # Add font_name demonstration section (Requirements 1.1, 1.2)
+        font_name_variations = [
+            ("font_name='Roboto' (default)", {"font_name": "Roboto"}),
+            ("font_name='DejaVuSans'", {"font_name": "DejaVuSans"}),
+        ]
+        font_name_section = self.create_section("font_name", font_name_variations)
+        main_layout.add_widget(font_name_section)
+        
         return scroll_view
     
     def create_header(self, title):

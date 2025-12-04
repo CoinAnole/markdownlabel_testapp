@@ -15,8 +15,8 @@
     - Create SAMPLE_MARKDOWN with heading, paragraph, and inline code
     - _Requirements: 9.1_
 
-- [ ] 2. Implement font_name demonstration section
-  - [ ] 2.1 Add font_name section with variations
+- [x] 2. Implement font_name demonstration section
+  - [x] 2.1 Add font_name section with variations
     - Create section with "font_name" header
     - Add variation with default Roboto font
     - Add variation with alternative font (DejaVuSans or similar)
