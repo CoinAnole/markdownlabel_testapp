@@ -36,8 +36,8 @@
     - Add variation with cyan color [0,1,1,1]
     - _Requirements: 3.1, 3.2_
 
-- [ ] 5. Implement line_height demonstration section
-  - [ ] 5.1 Add line_height section with variations
+- [x] 5. Implement line_height demonstration section
+  - [x] 5.1 Add line_height section with variations
     - Create section with "line_height" header
     - Add variations with line_height=1.0, 1.5, 2.0
     - _Requirements: 4.1, 4.2_

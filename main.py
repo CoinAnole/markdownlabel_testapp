@@ -78,6 +78,15 @@ class MarkdownDemoApp(App):
         color_section = self.create_section("color", color_variations)
         main_layout.add_widget(color_section)
         
+        # Add line_height demonstration section (Requirements 4.1, 4.2)
+        line_height_variations = [
+            ("line_height=1.0", {"line_height": 1.0}),
+            ("line_height=1.5", {"line_height": 1.5}),
+            ("line_height=2.0", {"line_height": 2.0}),
+        ]
+        line_height_section = self.create_section("line_height", line_height_variations)
+        main_layout.add_widget(line_height_section)
+        
         return scroll_view
     
     def create_header(self, title):
