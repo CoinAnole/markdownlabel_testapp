@@ -22,8 +22,8 @@
     - Add variation with alternative font (DejaVuSans or similar)
     - _Requirements: 1.1, 1.2_
 
-- [ ] 3. Implement font_size demonstration section
-  - [ ] 3.1 Add font_size section with variations
+- [x] 3. Implement font_size demonstration section
+  - [x] 3.1 Add font_size section with variations
     - Create section with "font_size" header
     - Add variations with font_size=14, 20, 28
     - _Requirements: 2.1, 2.2_

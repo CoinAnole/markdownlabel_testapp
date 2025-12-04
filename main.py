@@ -60,6 +60,15 @@ class MarkdownDemoApp(App):
         font_name_section = self.create_section("font_name", font_name_variations)
         main_layout.add_widget(font_name_section)
         
+        # Add font_size demonstration section (Requirements 2.1, 2.2)
+        font_size_variations = [
+            ("font_size=14", {"font_size": 14}),
+            ("font_size=20", {"font_size": 20}),
+            ("font_size=28", {"font_size": 28}),
+        ]
+        font_size_section = self.create_section("font_size", font_size_variations)
+        main_layout.add_widget(font_size_section)
+        
         return scroll_view
     
     def create_header(self, title):
