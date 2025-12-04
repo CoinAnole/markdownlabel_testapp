@@ -1,17 +1,17 @@
 # Implementation Plan
 
-- [ ] 1. Refactor app structure for multi-section layout
-  - [ ] 1.1 Update main.py to use vertical BoxLayout with ScrollView
+- [x] 1. Refactor app structure for multi-section layout
+  - [x] 1.1 Update main.py to use vertical BoxLayout with ScrollView
     - Replace single MarkdownLabel with main BoxLayout container
     - Configure ScrollView for vertical scrolling
     - Set up proper size hints for scrollable content
     - _Requirements: 8.1_
-  - [ ] 1.2 Create helper methods for section and variation creation
+  - [x] 1.2 Create helper methods for section and variation creation
     - Add create_section() method that creates header + variations layout
     - Add create_variation() method that creates description + MarkdownLabel
     - Add create_header() method for section headers
     - _Requirements: 8.2, 8.3_
-  - [ ] 1.3 Define sample markdown content constant
+  - [x] 1.3 Define sample markdown content constant
     - Create SAMPLE_MARKDOWN with heading, paragraph, and inline code
     - _Requirements: 9.1_
 
