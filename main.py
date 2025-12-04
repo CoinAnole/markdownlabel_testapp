@@ -97,6 +97,15 @@ class MarkdownDemoApp(App):
         halign_section = self.create_section("halign", halign_variations)
         main_layout.add_widget(halign_section)
         
+        # Add padding demonstration section (Requirements 6.1, 6.2, 6.3)
+        padding_variations = [
+            ("padding=[0,0,0,0]", {"padding": [0, 0, 0, 0]}),
+            ("padding=[20,20,20,20]", {"padding": [20, 20, 20, 20]}),
+            ("padding=[40,10,40,10]", {"padding": [40, 10, 40, 10]}),
+        ]
+        padding_section = self.create_section("padding", padding_variations, show_background=True)
+        main_layout.add_widget(padding_section)
+        
         return scroll_view
     
     def create_header(self, title):
@@ -121,11 +130,12 @@ class MarkdownDemoApp(App):
         header.bind(size=header.setter('text_size'))
         return header
     
-    def create_variation(self, description, **properties):
+    def create_variation(self, description, show_background=False, **properties):
         """Create a single MarkdownLabel variation with description.
         
         Args:
             description: Text describing the property values
+            show_background: If True, add visible background color to MarkdownLabel
             **properties: Properties to apply to MarkdownLabel
             
         Returns:
@@ -159,6 +169,14 @@ class MarkdownDemoApp(App):
         )
         md_label.bind(minimum_height=md_label.setter('height'))
         md_label.bind(on_ref_press=self.on_ref_press)
+        
+        # Add background color if requested (Requirement 6.3)
+        if show_background:
+            with md_label.canvas.before:
+                Color(0.2, 0.2, 0.3, 1)  # Dark blue-gray background
+                md_label.bg_rect = Rectangle(pos=md_label.pos, size=md_label.size)
+            md_label.bind(pos=self._update_rect, size=self._update_rect)
+        
         variation_layout.add_widget(md_label)
         
         # Calculate total height
@@ -168,12 +186,13 @@ class MarkdownDemoApp(App):
         
         return variation_layout
     
-    def create_section(self, title, variations):
+    def create_section(self, title, variations, show_background=False):
         """Create a section with header and variations.
         
         Args:
             title: Section header text
             variations: List of (description, property_dict) tuples
+            show_background: If True, add visible background to variations
             
         Returns:
             BoxLayout containing the section
@@ -191,13 +210,24 @@ class MarkdownDemoApp(App):
         
         # Add each variation
         for description, props in variations:
-            variation = self.create_variation(description, **props)
+            variation = self.create_variation(description, show_background=show_background, **props)
             section_layout.add_widget(variation)
         
         # Bind height to minimum_height
         section_layout.bind(minimum_height=section_layout.setter('height'))
         
         return section_layout
+    
+    def _update_rect(self, instance, value):
+        """Update background rectangle position and size.
+        
+        Args:
+            instance: The widget instance
+            value: The new value (not used, but required by Kivy binding)
+        """
+        if hasattr(instance, 'bg_rect'):
+            instance.bg_rect.pos = instance.pos
+            instance.bg_rect.size = instance.size
     
     def on_ref_press(self, instance, ref):
         """Handle link click events from MarkdownLabel.
