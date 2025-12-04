@@ -69,6 +69,15 @@ class MarkdownDemoApp(App):
         font_size_section = self.create_section("font_size", font_size_variations)
         main_layout.add_widget(font_size_section)
         
+        # Add color demonstration section (Requirements 3.1, 3.2)
+        color_variations = [
+            ("color=[1,1,1,1] (white)", {"color": [1, 1, 1, 1]}),
+            ("color=[1,1,0,1] (yellow)", {"color": [1, 1, 0, 1]}),
+            ("color=[0,1,1,1] (cyan)", {"color": [0, 1, 1, 1]}),
+        ]
+        color_section = self.create_section("color", color_variations)
+        main_layout.add_widget(color_section)
+        
         return scroll_view
     
     def create_header(self, title):

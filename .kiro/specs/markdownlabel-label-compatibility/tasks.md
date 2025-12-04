@@ -28,8 +28,8 @@
     - Add variations with font_size=14, 20, 28
     - _Requirements: 2.1, 2.2_
 
-- [ ] 4. Implement color demonstration section
-  - [ ] 4.1 Add color section with variations
+- [x] 4. Implement color demonstration section
+  - [x] 4.1 Add color section with variations
     - Create section with "color" header
     - Add variation with white color [1,1,1,1]
     - Add variation with yellow color [1,1,0,1]
