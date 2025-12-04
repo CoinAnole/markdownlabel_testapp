@@ -109,6 +109,56 @@ class TestApplicationStructure(unittest.TestCase):
         self.assertTrue(callable(self.app.create_variation), "create_variation should be callable")
         self.assertTrue(callable(self.app.create_header), "create_header should be callable")
 
+    def test_main_layout_contains_expected_sections(self):
+        """Test that main BoxLayout contains all expected property sections."""
+        # Requirements: 8.1, 8.2
+        root_widget = self.app.build()
+        main_layout = root_widget.children[0]
+        
+        # Main layout should have multiple children (sections)
+        self.assertGreater(len(main_layout.children), 0, "Main layout should contain sections")
+        
+        # Expected sections: font_name, font_size, color, line_height, halign, padding, disabled
+        # Each section is a BoxLayout
+        section_count = sum(1 for child in main_layout.children if isinstance(child, BoxLayout))
+        self.assertGreaterEqual(section_count, 7, "Main layout should contain at least 7 sections")
+
+    def test_each_section_has_header(self):
+        """Test that each section has a header label."""
+        # Requirements: 8.2
+        from kivy.uix.label import Label
+        
+        root_widget = self.app.build()
+        main_layout = root_widget.children[0]
+        
+        # Check each section (BoxLayout child of main_layout)
+        for section in main_layout.children:
+            if isinstance(section, BoxLayout):
+                # Section should have children
+                self.assertGreater(len(section.children), 0, "Section should have children")
+                
+                # Find labels in the section (header should be a Label)
+                labels = [child for child in section.children if isinstance(child, Label)]
+                self.assertGreater(len(labels), 0, "Section should contain at least one Label (header)")
+
+    def test_each_section_has_variations(self):
+        """Test that each section has multiple MarkdownLabel variations."""
+        # Requirements: 8.2
+        root_widget = self.app.build()
+        main_layout = root_widget.children[0]
+        
+        # Check each section
+        for section in main_layout.children:
+            if isinstance(section, BoxLayout):
+                # Find all MarkdownLabels in this section
+                md_labels = find_markdownlabels(section)
+                
+                # Each section should have at least 2 variations (as per requirements)
+                self.assertGreaterEqual(
+                    len(md_labels), 2,
+                    "Each section should contain at least 2 MarkdownLabel variations"
+                )
+
 
 if __name__ == '__main__':
     unittest.main()

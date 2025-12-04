@@ -64,18 +64,18 @@
     - Add variation with disabled=True and custom disabled_color
     - _Requirements: 7.1, 7.2, 7.3_
 
-- [ ] 9. Checkpoint
+- [x] 9. Checkpoint
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 10. Write property tests
-  - [ ] 10.1 Write property test for consistent sample content
+- [x] 10. Write property tests
+  - [x] 10.1 Write property test for consistent sample content
     - **Property 1: Consistent Sample Content**
     - **Validates: Requirements 9.1, 9.2**
-  - [ ] 10.2 Write unit tests for app structure
+  - [x] 10.2 Write unit tests for app structure
     - Test ScrollView as root widget
     - Test main BoxLayout contains expected sections
     - Test each section has header and variations
     - _Requirements: 8.1, 8.2_
 
-- [ ] 11. Final Checkpoint
+- [x] 11. Final Checkpoint
   - Ensure all tests pass, ask the user if questions arise.
