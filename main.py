@@ -106,6 +106,17 @@ class MarkdownDemoApp(App):
         padding_section = self.create_section("padding", padding_variations, show_background=True)
         main_layout.add_widget(padding_section)
         
+        # Add disabled demonstration section (Requirements 7.1, 7.2, 7.3)
+        disabled_variations = [
+            ("disabled=False (normal)", {"disabled": False}),
+            ("disabled=True, disabled_color=[0.5,0.5,0.5,1]", {
+                "disabled": True,
+                "disabled_color": [0.5, 0.5, 0.5, 1]
+            }),
+        ]
+        disabled_section = self.create_section("disabled", disabled_variations)
+        main_layout.add_widget(disabled_section)
+        
         return scroll_view
     
     def create_header(self, title):

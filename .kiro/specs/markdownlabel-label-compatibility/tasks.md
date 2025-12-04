@@ -57,8 +57,8 @@
     - Add visible background color to make padding apparent
     - _Requirements: 6.1, 6.2, 6.3_
 
-- [ ] 8. Implement disabled state demonstration section
-  - [ ] 8.1 Add disabled section with variations
+- [x] 8. Implement disabled state demonstration section
+  - [x] 8.1 Add disabled section with variations
     - Create section with "disabled" header
     - Add variation with disabled=False (normal state)
     - Add variation with disabled=True and custom disabled_color
