@@ -105,7 +105,10 @@ class MarkdownDemoApp(App):
             ("halign='left'", {"halign": "left"}),
             ("halign='center'", {"halign": "center"}),
             ("halign='right'", {"halign": "right"}),
-            ("halign='justify'", {"halign": "justify"}),
+            ("halign='justify' (wrapped to show effect)", {
+                "halign": "justify",
+                "text_size": [600, None],  # force wrapping to visualize justification
+            }),
         ]
         halign_section = self.create_section("halign", halign_variations)
         main_layout.add_widget(halign_section)
