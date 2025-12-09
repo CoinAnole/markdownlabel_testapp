@@ -6,6 +6,6 @@ alwaysApply: true
 - Content: all `MarkdownLabel` widgets use the `SAMPLE_MARKDOWN` constant in `main.py`; `sample_markdown.md` is separate demo content used by tests and includes headings H1-H6, inline formatting, lists, tables, code block, blockquote, and links.
 - Event handling: `on_ref_press` prints `Link clicked: {ref}`; background rectangles for padding demo updated via `_update_rect`.
 - Dependencies: `requirements.txt` (kivy>=2.0.0, mistune>=3.0.0, pytest>=7, hypothesis>=6); also need `kivy_garden.markdownlabel` installed (README recommends `python3 -m pip install -e external/markdownlabel`).
-- Virtual env: prefer the project `.venv` (`source .venv/bin/activate`) before installing deps or running tests.
+- Virtual env: ALWAYS use the project `.venv` for any install or test; run via `source .venv/bin/activate` or prefix commands with `./.venv/bin/python3`.
 - Tests: `python3 -m pytest tests/`; assertions cover window/title config, scroll layout, section/variation counts, Markdown content completeness, README setup/troubleshooting sections, handler robustness with arbitrary refs.
 - External: `external/markdownlabel/` expected to hold the garden flower; directory may be empty if submodule not pulled.
