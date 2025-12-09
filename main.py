@@ -28,7 +28,7 @@ SAMPLE_MARKDOWN = """## Sample Heading
 
 This is a paragraph with some text to demonstrate the property. It includes `inline code` for testing code font preservation.
 
-Another paragraph to show line spacing effects."""
+Another paragraph to show line spacing effects. To make alignment differences clearer, this paragraph contains multiple sentences that should wrap across several lines when the text width is constrained. Notice how the right edge will appear ragged for left alignment but straight for justified alignment when enough wrapping occurs."""
 
 
 class MarkdownDemoApp(App):
@@ -108,6 +108,10 @@ class MarkdownDemoApp(App):
             ("halign='justify' (wrapped to show effect)", {
                 "halign": "justify",
                 "text_size": [600, None],  # force wrapping to visualize justification
+            }),
+            ("halign='left' (wrapped, side-by-side comparison)", {
+                "halign": "left",
+                "text_size": [600, None],
             }),
         ]
         halign_section = self.create_section("halign", halign_variations)
