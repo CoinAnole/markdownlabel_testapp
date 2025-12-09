@@ -121,7 +121,7 @@ class MarkdownDemoApp(App):
         padding_variations = [
             ("padding=[0,0,0,0]", {"padding": [0, 0, 0, 0]}),
             ("padding=[20,20,20,20]", {"padding": [20, 20, 20, 20]}),
-            ("padding=[40,10,40,10]", {"padding": [40, 10, 40, 10]}),
+            ("padding=[50,10,100,10]", {"padding": [50, 10, 100, 10]}),
         ]
         padding_section = self.create_section("padding", padding_variations, show_background=True)
         main_layout.add_widget(padding_section)
