@@ -8,6 +8,12 @@ and its Label-compatible properties from the kivy_garden.markdownlabel flower.
 
 from pathlib import Path
 
+from kivy.config import Config
+
+# Request window size before importing Window to ensure the provider uses it.
+Config.set("graphics", "width", "1400")
+Config.set("graphics", "height", "900")
+
 from kivy.app import App
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.boxlayout import BoxLayout
@@ -36,7 +42,7 @@ class MarkdownDemoApp(App):
     def build(self):
         """Build scrollable layout with property demonstration sections."""
         # Configure window size
-        Window.size = (800, 1200)
+        Window.size = (1400, 900)
         self.title = "MarkdownLabel Demo - Label Compatibility"
         
         # Create main vertical BoxLayout container
