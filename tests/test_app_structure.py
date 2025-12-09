@@ -44,8 +44,8 @@ class TestApplicationStructure(unittest.TestCase):
         # Build the app to trigger window configuration
         self.app.build()
         
-        # Check that window size is set to 800x1200 for multi-section layout
-        self.assertEqual(Window.size, (800, 1200), "Window size should be 800x1200 pixels")
+        # Check that window size is set to 1400x900 for multi-section layout
+        self.assertEqual(Window.size, (1400, 900), "Window size should be 1400x900 pixels")
 
     def test_window_title_configuration(self):
         """Test window title configuration."""
