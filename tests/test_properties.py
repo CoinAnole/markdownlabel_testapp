@@ -4,6 +4,7 @@ from hypothesis import given, strategies as st, settings
 from unittest.mock import patch
 from io import StringIO
 from kivy_garden.markdownlabel import MarkdownLabel
+from pathlib import Path
 
 
 def find_markdownlabels(widget):
@@ -52,15 +53,36 @@ class TestProperties(unittest.TestCase):
         
         # There should be multiple MarkdownLabel instances
         self.assertGreater(len(md_labels), 0, "App should contain MarkdownLabel widgets")
-        
-        # Verify all MarkdownLabels use the same sample content
+
+        # Load full sample file content for comparison
+        full_sample_path = Path(__file__).parents[1] / "sample_markdown.md"
+        full_sample_content = full_sample_path.read_text(encoding="utf-8")
+
+        # Separate labels showing property variations from the full sample display
+        property_texts = []
+        full_sample_matches = 0
         for md_label in md_labels:
+            if md_label.text == full_sample_content:
+                full_sample_matches += 1
+            else:
+                property_texts.append(md_label.text)
+
+        # The full sample_markdown.md content should be displayed at least once
+        self.assertGreaterEqual(
+            full_sample_matches,
+            1,
+            "Full sample_markdown.md content should be displayed in the demo"
+        )
+
+        # All property variation MarkdownLabels should share the same sample text
+        self.assertGreater(len(property_texts), 0, "Property variation labels should exist")
+        for text in property_texts:
             self.assertEqual(
-                md_label.text,
+                text,
                 self.sample_markdown,
-                f"All MarkdownLabel instances should use consistent sample content"
+                "Property variation labels should use the shared SAMPLE_MARKDOWN content"
             )
-        
+
         # Verify the sample content contains required elements (Requirements 9.1)
         self.assertIn('##', self.sample_markdown, "Sample content should contain a heading")
         self.assertIn('paragraph', self.sample_markdown.lower(), "Sample content should contain paragraph text")

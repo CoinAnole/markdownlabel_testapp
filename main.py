@@ -6,6 +6,8 @@ A demonstration application that showcases the MarkdownLabel widget
 and its Label-compatible properties from the kivy_garden.markdownlabel flower.
 """
 
+from pathlib import Path
+
 from kivy.app import App
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.boxlayout import BoxLayout
@@ -25,6 +27,11 @@ Another paragraph to show line spacing effects."""
 
 class MarkdownDemoApp(App):
     """Demo app showcasing MarkdownLabel Label-compatible properties."""
+
+    def __init__(self, **kwargs):
+        """Initialize the app and set up caches."""
+        super().__init__(**kwargs)
+        self._full_sample_cache = None
     
     def build(self):
         """Build scrollable layout with property demonstration sections."""
@@ -116,6 +123,10 @@ class MarkdownDemoApp(App):
         ]
         disabled_section = self.create_section("disabled", disabled_variations)
         main_layout.add_widget(disabled_section)
+
+        # Add full sample_markdown.md display (original single-label demo)
+        full_sample_section = self.create_full_sample_section()
+        main_layout.add_widget(full_sample_section)
         
         return scroll_view
     
@@ -214,6 +225,7 @@ class MarkdownDemoApp(App):
             spacing=10,
             padding=[0, 10, 0, 20]
         )
+        section_layout.section_title = title
         
         # Add section header (Requirement 8.2)
         header = self.create_header(title)
@@ -228,6 +240,42 @@ class MarkdownDemoApp(App):
         section_layout.bind(minimum_height=section_layout.setter('height'))
         
         return section_layout
+
+    def create_full_sample_section(self):
+        """Create a section that displays the full sample_markdown.md content."""
+        section_layout = BoxLayout(
+            orientation='vertical',
+            size_hint_y=None,
+            spacing=10,
+            padding=[0, 10, 0, 20]
+        )
+        section_layout.section_title = "sample_markdown.md"
+
+        header = self.create_header("sample_markdown.md (full content)")
+        section_layout.add_widget(header)
+
+        full_sample_text = self.load_full_sample_markdown()
+        md_label = MarkdownLabel(
+            text=full_sample_text,
+            size_hint_y=None,
+        )
+        md_label.bind(minimum_height=md_label.setter('height'))
+        md_label.bind(on_ref_press=self.on_ref_press)
+        section_layout.add_widget(md_label)
+
+        section_layout.bind(minimum_height=section_layout.setter('height'))
+        return section_layout
+
+    def load_full_sample_markdown(self):
+        """Load and cache the contents of sample_markdown.md."""
+        if self._full_sample_cache is None:
+            sample_path = Path(__file__).with_name("sample_markdown.md")
+            try:
+                self._full_sample_cache = sample_path.read_text(encoding="utf-8")
+            except Exception as exc:
+                self._full_sample_cache = "Failed to load sample_markdown.md"
+                print(f"Error loading sample_markdown.md: {exc}")
+        return self._full_sample_cache
     
     def _update_rect(self, instance, value):
         """Update background rectangle position and size.

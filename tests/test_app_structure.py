@@ -118,10 +118,10 @@ class TestApplicationStructure(unittest.TestCase):
         # Main layout should have multiple children (sections)
         self.assertGreater(len(main_layout.children), 0, "Main layout should contain sections")
         
-        # Expected sections: font_name, font_size, color, line_height, halign, padding, disabled
+        # Expected sections: font_name, font_size, color, line_height, halign, padding, disabled, sample_markdown.md
         # Each section is a BoxLayout
         section_count = sum(1 for child in main_layout.children if isinstance(child, BoxLayout))
-        self.assertGreaterEqual(section_count, 7, "Main layout should contain at least 7 sections")
+        self.assertGreaterEqual(section_count, 8, "Main layout should contain at least 8 sections")
 
     def test_each_section_has_header(self):
         """Test that each section has a header label."""
@@ -152,12 +152,34 @@ class TestApplicationStructure(unittest.TestCase):
             if isinstance(section, BoxLayout):
                 # Find all MarkdownLabels in this section
                 md_labels = find_markdownlabels(section)
-                
-                # Each section should have at least 2 variations (as per requirements)
-                self.assertGreaterEqual(
-                    len(md_labels), 2,
-                    "Each section should contain at least 2 MarkdownLabel variations"
-                )
+                section_title = getattr(section, 'section_title', '').lower()
+                if 'sample_markdown.md' in section_title:
+                    # Full sample display only needs one MarkdownLabel
+                    self.assertGreaterEqual(
+                        len(md_labels), 1,
+                        "Full sample section should contain the sample MarkdownLabel"
+                    )
+                else:
+                    # Each property section should have at least 2 variations
+                    self.assertGreaterEqual(
+                        len(md_labels), 2,
+                        "Each property section should contain at least 2 MarkdownLabel variations"
+                    )
+
+    def test_full_sample_section_present(self):
+        """Test that the full sample_markdown.md section is appended."""
+        root_widget = self.app.build()
+        main_layout = root_widget.children[0]
+        section_titles = [
+            getattr(section, 'section_title', '').lower()
+            for section in main_layout.children
+            if isinstance(section, BoxLayout)
+        ]
+        self.assertIn(
+            'sample_markdown.md',
+            section_titles,
+            "Layout should include a section for sample_markdown.md content"
+        )
 
 
 if __name__ == '__main__':
